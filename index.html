@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script type="module" src="/index.js"></script>
+  </head>
+  <body>
+    <span class="text-2xl font-bold dark:text-stone-100">Realtime Wage Compare</span>
+    <div>
+      <input type="number" id="rate1" min="0" placeholder="Wage 1" />
+      <input type="number" id="rate2" min="0" placeholder="Wage 2" />
+    </div>
+    <div name="rateUnitSel">
+      <input type="radio" name="rateUnitSel" value="3600000" checked />/Hr
+      <input type="radio" name="rateUnitSel" value="86400000" />/Day
+      <input type="radio" name="rateUnitSel" value="2592000000" />/Month
+      <input type="radio" name="rateUnitSel" value="31104000000" />/Yr
+    </div>
+    <button id="startTimerBtn">Start Timer</button>
+    <button id="resetTimerBtn">Stop Timer</button>
+    <!-- should rename but wtvr -->
+    <p id="timer">hr:mn:sc:ms</p>
+    <p>Wage 1: <b id="wage1">$...</b></p>
+    <p>Wage 2: <b id="wage2">$...</b></p>
+    <p>JM says "no war but class war"</p>
+  </body>
+</html>
