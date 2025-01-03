@@ -70,14 +70,16 @@ function toMoney(val, places=2) {
 
 var timer = new Timer();
 var intervalID = null;
+var rate1Input = document.getElementById("rate1");
+var rate2Input = document.getElementById("rate2");
 
 document.getElementById("startTimerBtn").onclick = function() {
   if (intervalID != null) {
     return;
   }
   // Get wages
-  let wage1 = document.getElementById('rate1').value;
-  let wage2 = document.getElementById('rate2').value;
+  let wage1 = rate1Input.value;
+  let wage2 = rate2Input.value;
   if (wage1 == "" || wage2 == "") { // Values needed!
     return;
   }
@@ -95,10 +97,21 @@ document.getElementById("startTimerBtn").onclick = function() {
   }, 10);
 };
 
-document.getElementById("resetTimerBtn").onclick = function() {
+var stopTimer = function() {
   if (intervalID != null) {
     timer.resetTimer();
     clearInterval(intervalID);
     intervalID = null;
   }
+};
+
+document.getElementById("resetTimerBtn").onclick = stopTimer;
+
+document.getElementById("clearTimerBtn").onclick = function() {
+  stopTimer();
+  rate1Input.value = 0;
+  rate2Input.value = 0;
+  document.getElementById("timer").innerHTML = "hr:mn:sc:ms";
+  document.getElementById("wage1").innerHTML = "$...";
+  document.getElementById("wage2").innerHTML = "$...";
 };
